@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "13e31bc5-647a-3c40-8cbf-c28339dd2a0d++7004",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "13e31bc5-647a-3c40-8cbf-c28339dd2a0d++7004" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "13e31bc5-647a-3c40-8cbf-c28339dd2a0d++7004" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "FEA94E16-43D4-4FA6-9767-AEF9ED0C4F1D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "13e31bc5-647a-3c40-8cbf-c28339dd2a0d++7004" : "stereo\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CordovaLib",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "lib\/CordovaLib\/CordovaLib.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/svn.r3soft.com\/svn\/r3soft",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "13e31bc5-647a-3c40-8cbf-c28339dd2a0d++7004"
+    }
+  ]
+}
