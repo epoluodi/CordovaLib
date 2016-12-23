@@ -29,13 +29,7 @@
 
 
 
-@protocol CordovaWebDelegate
 
--(void)OnMessage:(NSString *)Action command:(CDVInvokedUrlCommand *)command;
--(void)OnBatBtnClick:(NSString *)Action;
-
-
-@end
 
 @interface CDVViewController : UIViewController <UIWebViewDelegate, CDVScreenOrientationDelegate>{
     @protected
@@ -45,20 +39,13 @@
     NSString* _userAgent;
     NSTimer *timer;
     float processoffet;
+    
  
     
 }
 
 @property (nonatomic, strong) IBOutlet UIWebView* webView;
-@property (strong,nonatomic) UINavigationBar *navigationBar; //状态栏
-@property (strong,nonatomic) UINavigationItem *navtitle;//标题
-@property (strong,nonatomic) UIBarButtonItem *btnLeft;//左边按钮
-@property (strong,nonatomic) UIBarButtonItem *btnRight;//右边按钮
 @property (strong,nonatomic) UIProgressView *webprogressview;//进度条
-@property (strong,nonatomic) NSString *gobackJS;//js返回函数名称
-@property (strong,nonatomic) NSObject<CordovaWebDelegate> *CordovaDelegate;
-
-
 
 
 @property (nonatomic, readonly, strong) NSMutableDictionary* pluginObjects;
@@ -67,6 +54,7 @@
 @property (nonatomic, readonly, strong) NSXMLParser* configParser;
 @property (nonatomic, readonly, strong) CDVWhitelist* whitelist; // readonly for public
 @property (nonatomic, readonly, assign) BOOL loadFromString;
+
 
 @property (nonatomic, readwrite, copy) NSString* wwwFolderName;
 @property (nonatomic, readwrite, copy) NSString* startPage;
@@ -107,11 +95,7 @@
 
 
 
-- (void)setWebTitle:(NSString *)title;//设置Webtitle
-- (void)showHideLeftButton:(BOOL)show;//设置左边按钮是否打开
-- (void)showHideRightButton:(BOOL)show;//设置左边按钮是否打开
-- (void)webGoBack;//web返回
-- (void)setRightBtn:(NSString *)title image:(UIImage *)image;//设置按钮的文字和图片
+
 
 //传递消息
 - (void)OnMessage:(NSString *)Action command:(CDVInvokedUrlCommand *)command ;

@@ -57,84 +57,21 @@
 @synthesize wwwFolderName, startPage, initialized, openURL, baseUserAgent;
 @synthesize commandDelegate = _commandDelegate;
 @synthesize commandQueue = _commandQueue;
-@synthesize navigationBar,navtitle,btnLeft,btnRight,webprogressview;
-@synthesize gobackJS;
-@synthesize CordovaDelegate;
+@synthesize webprogressview;
+
 
 
 
 
 #pragma 自定义
 
--(void)setWebTitle:(NSString *)title
-{
-    navtitle.title = title;
-}
-
--(void)showHideLeftButton:(BOOL)show
-{
-    if (show)
-        navtitle.leftBarButtonItem = btnLeft;
-    else
-        navtitle.leftBarButtonItem = nil;
-}
-
--(void)showHideRightButton:(BOOL)show
-{
-    if (show){
-        navtitle.rightBarButtonItem = btnRight;
-    }
-    else{
-        navtitle.rightBarButtonItem = nil;
-   
-    }
-    
-    
-
-}
--(void)webGoBack
-{
-  
-    if ([gobackJS isEqualToString:@""])
-        [webView goBack];
-    else
-        [self.commandDelegate evalJs:gobackJS];
-}
 
 -(void)OnMessage:(NSString *)Action command:(CDVInvokedUrlCommand *)command
 {
-    if (CordovaDelegate !=nil)
-        [CordovaDelegate OnMessage:Action command:command];
+
 }
 
 
--(void)setRightBtn:(NSString *)title image:(UIImage *)image
-{
-    if (title)
-    {
-        btnRight.image = nil;
-        btnRight.title = title;
-        return;
-    }
-    if (image)
-    {
-        btnRight.image = image;
-    }
-}
--(void)btnLeftclick
-{
-    NSLog(@"点击返回");
-    [self webGoBack];
-}
-
-
--(void)btnRightclick
-{
-    if (CordovaDelegate !=nil)
-        [CordovaDelegate OnBatBtnClick:@"CLICKMENUACTION"];
-    NSLog(@"点击返回");
-    
-}
 
 
 
@@ -152,27 +89,27 @@
     
 }
 
-
-// 创建navbar
-- (void)createNavgationBar
-{
-    gobackJS = @"";
-    navigationBar = [[UINavigationBar alloc] init];
-    navigationBar.frame = CGRectMake(0, 0, self.view.bounds.size.width, 58);
-    navtitle = [[UINavigationItem alloc] init];
-    [navigationBar pushNavigationItem:navtitle animated:NO];
-    navtitle.hidesBackButton = YES;
-    btnLeft = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(btnLeftclick)];
-    btnLeft.tintColor=[UIColor whiteColor];
-    btnRight =[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"more"] style:UIBarButtonItemStylePlain target:self action:@selector(btnRightclick)];
-    
-    [navtitle setLeftBarButtonItem:btnLeft];
-    navigationBar.translucent=YES;
-    navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    [self setNeedsStatusBarAppearanceUpdate];
-    [self.view addSubview:navigationBar];
-    
-}
+//
+//// 创建navbar
+//- (void)createNavgationBar
+//{
+//    gobackJS = @"";
+//    navigationBar = [[UINavigationBar alloc] init];
+//    navigationBar.frame = CGRectMake(0, 0, self.view.bounds.size.width, 58);
+//    navtitle = [[UINavigationItem alloc] init];
+//    [navigationBar pushNavigationItem:navtitle animated:NO];
+//    navtitle.hidesBackButton = YES;
+//    btnLeft = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(btnLeftclick)];
+//    btnLeft.tintColor=[UIColor whiteColor];
+//    btnRight =[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"more"] style:UIBarButtonItemStylePlain target:self action:@selector(btnRightclick)];
+//    
+//    [navtitle setLeftBarButtonItem:btnLeft];
+//    navigationBar.translucent=YES;
+//    navigationBar.barStyle = UIBarStyleBlackTranslucent;
+//    [self setNeedsStatusBarAppearanceUpdate];
+//    [self.view addSubview:navigationBar];
+//    
+//}
 
 
 -(UIStatusBarStyle)preferredStatusBarStyle
@@ -472,8 +409,8 @@
     
     
     if (!self.webView) {
-        [self createNavgationBar];
-        [self createprogress];
+//        [self createNavgationBar];
+//        [self createprogress];
         [self createGapView];
         
     }
@@ -830,9 +767,9 @@
 
 //    webViewBounds.origin = self.view.bounds.origin;
 //navigationBar.frame.origin.y
-    CGRect webViewBounds = CGRectMake(0, 58,
+    CGRect webViewBounds = CGRectMake(0, 0,
         self.view.bounds.size.width,
-                                      self.view.bounds.size.height - navigationBar.frame.size.height);
+                                      self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height );
     self.webView = [self newCordovaViewWithFrame:webViewBounds];
     self.webView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [webView setBackgroundColor:[UIColor whiteColor]];
@@ -882,16 +819,17 @@
 
 #pragma mark UIWebViewDelegate
 
+
+
 /**
  When web application loads Add stuff to the DOM, mainly the user-defined settings from the Settings.plist file, and
  the device's data such as device ID, platform version, etc.
  */
 - (void)webViewDidStartLoad:(UIWebView*)theWebView
 {
-    [self showHideRightButton:NO];
-    if (CordovaDelegate != nil)
-        [CordovaDelegate OnMessage:@"CLEARMENUACTION" command:nil];
-    [self startProcess];//开始process 动画
+   
+
+//    [self startProcess];//开始process 动画
 
     NSLog(@"url webViewDidStartLoad 请求 ： %@",[theWebView.request.URL scheme]);
     
@@ -905,12 +843,14 @@
  */
 - (void)webViewDidFinishLoad:(UIWebView*)theWebView
 {
-    [webprogressview setProgress:1 animated:YES];
-    [self startProcess2];
+//    [webprogressview setProgress:1 animated:YES];
+//    [self startProcess2];
     NSLog(@"Finished load of: %@", theWebView.request.URL);
     // It's safe to release the lock even if this is just a sub-frame that's finished loading.
     [CDVUserAgentUtil releaseLock:&_userAgentLockToken];
 
+
+  
     /*
      * Hide the Top Activity THROBBER in the Battery Bar
      */

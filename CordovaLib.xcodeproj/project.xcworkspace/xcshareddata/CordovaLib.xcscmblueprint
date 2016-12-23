@@ -1,21 +1,28 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "13e31bc5-647a-3c40-8cbf-c28339dd2a0d++7004",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "08BA80187C94A93C38DB0D55FB2AE74D08785C1C",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
     "13e31bc5-647a-3c40-8cbf-c28339dd2a0d++7004" : {
 
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "13e31bc5-647a-3c40-8cbf-c28339dd2a0d++7004" : 9223372036854775807
+    "13e31bc5-647a-3c40-8cbf-c28339dd2a0d++7004" : 9223372036854775807,
+    "08BA80187C94A93C38DB0D55FB2AE74D08785C1C" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "FEA94E16-43D4-4FA6-9767-AEF9ED0C4F1D",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "13e31bc5-647a-3c40-8cbf-c28339dd2a0d++7004" : "stereo\/"
+    "13e31bc5-647a-3c40-8cbf-c28339dd2a0d++7004" : "..\/..",
+    "08BA80187C94A93C38DB0D55FB2AE74D08785C1C" : "CordovaLib\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "CordovaLib",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "lib\/CordovaLib\/CordovaLib.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CordovaLib.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/epoluodi\/CordovaLib.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "08BA80187C94A93C38DB0D55FB2AE74D08785C1C"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/svn.r3soft.com\/svn\/r3soft",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
